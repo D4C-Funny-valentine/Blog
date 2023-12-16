@@ -8,7 +8,7 @@ const Footer = () => {
         <p className="text-gray-400/90">
           Created by
           <strong className="text-gray-600 border-b border-gray-600 ml-2">
-            FOD
+            Meks
           </strong>
           . Powered by
           <strong className="text-gray-600 border-b border-gray-600 ml-2">
