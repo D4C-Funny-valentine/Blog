@@ -1,0 +1,52 @@
+.splide__pagination {
+  bottom: -8rem !important;
+  gap: 0.5rem !important;
+}
+
+.splide__pagination__page {
+  border: none !important;
+  background: #d3cfcfe5 !important;
+  width: 10px;
+  height: 10px;
+  outline: none !important;
+}
+
+.splide__pagination__page.is-active {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  transform: scale(1.2) !important;
+  opacity: 1;
+  outline: none !important;
+}
+
+.splide__track {
+  overflow: visible;
+}
+
+.splide__arrow {
+  opacity: 0 !important;
+  transition: 0.3s all ease-in-out !important;
+}
+
+.splide__arrow svg {
+  fill: #b2223a;
+  width: 15rem;
+  height: 15rem;
+  outline: none !important;
+}
+
+.splide__arrow--next {
+  width: 15rem;
+  height: 15rem;
+  outline: none !important;
+}
+
+.splide__arrow--prev {
+  width: 15rem;
+  height: 15rem;
+  outline: none !important;
+}
+
+.splide__arrow:hover:not(:disabled) {
+  opacity: 1 !important;
+}

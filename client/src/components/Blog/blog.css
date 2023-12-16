@@ -1,0 +1,42 @@
+.recommend-blog:hover .title {
+  color: #c62641;
+}
+
+/* customize Form from react-select */
+
+.css-t3ipsp-control {
+  border: 1px solid rgb(224, 224, 224) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* customize Editor from react draft js */
+
+.rdw-editor-main {
+  overflow: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 500px !important;
+  background: #ebebeb8f !important;
+}
+
+.rdw-editor-main::-webkit-scrollbar {
+  display: none !important;
+}
+
+.edit-box {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+}
+
+/* blog card css */
+.edit:hover .edit-box {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.edit:active .edit-box {
+  opacity: 1;
+  transform: translateY(0);
+}

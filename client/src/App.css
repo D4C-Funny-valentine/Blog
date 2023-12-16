@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap");
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif !important;
+}
+
+.content h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1.5rem;
+}
+
+.content h1 {
+  font-weight: bold;
+  font-size: 2rem !important;
+}
+
+.content p {
+  margin-bottom: 2rem !important;
+  color: #494747 !important;
+}

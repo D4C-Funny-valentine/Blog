@@ -1,0 +1,15 @@
+.m-5df29311 {
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  height: 100%;
+}
+
+.image-edit-box {
+  opacity: 0;
+  transition: 0.3s all ease-in-out;
+}
+
+.image-container:hover .image-edit-box {
+  opacity: 1;
+}
