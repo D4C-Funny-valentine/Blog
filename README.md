@@ -18,6 +18,10 @@ And run with the following command
 
 - yarn dev
 
+### Issue
+
+You might not be able to run this because you don't have the .env file in the server so sorry about that
+
 I hope you will enjoy the project
 
 @ Project designed by <a href="https://mekshq.com/" target="_blank">Meks</a>
