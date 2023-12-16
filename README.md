@@ -20,4 +20,4 @@ And run with the following command
 
 I hope you will enjoy the project
 
-@ Project designed by <a href="https://mekshq.com/" target="_blank">Meks 💬</a>
+@ Project designed by <a href="https://mekshq.com/" target="_blank">Meks</a>
