@@ -10,6 +10,7 @@ const firebaseConfig = {
   appId: "1:20430141146:web:131639b9ce6637d20257e3",
   measurementId: "G-JZ7MKRPS0C",
 };
+// Hey what are you looking at~!!!! I know I should put these in the .env file but  I am so boring right now so....
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
