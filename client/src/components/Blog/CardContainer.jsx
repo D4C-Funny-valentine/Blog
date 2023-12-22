@@ -17,7 +17,7 @@ const CardContainer = ({ page, setPage, isLoading, data, isFetching }) => {
         return [...prev, ...uniqueBlogs];
       });
     }
-  }, [data, isLoading]);
+  }, [data]);
 
   useEffect(() => {
     const filterBlogs = setBlogs((prev) =>

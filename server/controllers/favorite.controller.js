@@ -18,7 +18,7 @@ const addFavorite = async (req, res) => {
     const blog = await blogModel.findById(req.params.id);
 
     if (blog) {
-      const favorite = await favoriteModel.create({
+      await favoriteModel.create({
         user: req.user.id,
         blogId: blog.id,
         title: blog.title,
@@ -26,7 +26,13 @@ const addFavorite = async (req, res) => {
         content: blog.content,
       });
 
-      return res.status(201).json({ success: true, data: favorite });
+      blog.isFavorite = true;
+
+      await blog.save();
+
+      return res
+        .status(201)
+        .json({ success: true, message: "Add to favorite successfully" });
     } else {
       return res.status(404).json({ message: "Blog not found" });
     }
@@ -43,20 +49,27 @@ const removeFavorite = async (req, res) => {
       return res.status(400).json({ message: "Id parameter is required" });
     }
 
+    console.log(blogId);
+
     const favoriteBlog = await favoriteModel.findOne({
       user: req.user.id,
-      blog: blogId,
+      blogId: blogId,
     });
+
+    console.log(favoriteBlog);
 
     if (!favoriteBlog) {
       return res.status(404).json({ message: "Favorite not found" });
     }
 
+    favoriteBlog.isFavorite = false;
+
+    await favoriteBlog.save();
+
     await favoriteModel.findByIdAndDelete(favoriteBlog._id);
 
     return res.status(200).json({
       success: true,
-      data: favoriteBlog,
       message: "Remove successfully",
     });
   } catch (error) {
@@ -97,7 +110,7 @@ const getAllFavorites = async (req, res) => {
 
     return res
       .status(200)
-      .json({ success: true, data: favorites, currentPage: page, totalPages });
+      .json({ success: true, blogs: favorites, currentPage: page, totalPages });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Internal Server Error" });

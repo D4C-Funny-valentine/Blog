@@ -15,6 +15,8 @@ const FavoriteBlogPage = () => {
     page,
   });
 
+  console.log(data);
+
   const navigate = useNavigate();
   if (error) {
     return (

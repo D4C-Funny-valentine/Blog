@@ -20,11 +20,13 @@ const BlogSchema = new mongoose.Schema(
       type: Object,
     },
     description: Array,
-    // image: String,
-    // video: String,
     commentSection: {
       type: Array,
       default: [],
+    },
+    isFavorite: {
+      type: Boolean,
+      default: false,
     },
   },
   modalOptions

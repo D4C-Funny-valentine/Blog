@@ -13,22 +13,21 @@ import {
 import { useSelector } from "react-redux";
 
 const BlogCard = ({ blog, handleDeleteBlog }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const { token } = useSelector((state) => state.userStore);
   const [createUserFavorite, { isLoading: createLoading }] =
     useCreateUserFavoriteMutation();
   const [deleteUserFavorite, { isLoading: deleteLoading }] =
     useDeleteUserFavoriteMutation();
-  const { data: favoriteBlogs } = useGetUserFavoritesQuery({ token });
-
-  const checkIsFavorite = favoriteBlogs?.data.some(
-    (item) => item.blog === blog.id
-  );
 
   const addFavoriteBlogHandler = async () => {
     try {
       const res = await createUserFavorite({ token, id: blog.id });
       const { data, error } = res;
-      console.log(error, data);
+      console.log(data, error);
+      if (data?.success) {
+        setIsFavorite(true);
+      }
     } catch (error) {
       console.error(error);
       throw new Error(error.message);
@@ -39,7 +38,10 @@ const BlogCard = ({ blog, handleDeleteBlog }) => {
     try {
       const res = await deleteUserFavorite({ token, id: blog.id });
       const { data, error } = res;
-      console.log(error, data);
+      if (data?.success) {
+        setIsFavorite(false);
+      }
+      console.log(data, error);
     } catch (error) {
       console.error(error);
       throw new Error(error.message);
@@ -80,16 +82,14 @@ const BlogCard = ({ blog, handleDeleteBlog }) => {
         </Link>
 
         <Button
-          text={checkIsFavorite ? "Remove favorite" : "Read Later"}
+          text={isFavorite ? "Remove favorite" : "Read Later"}
           icon={<CiBookmarkPlus size={14} className="text-primary" />}
           bgColor={"bg-transparent"}
           textColor={"text-primary"}
           borderColor={"border-primary"}
           disabled={createLoading || (deleteLoading && true)}
           onclick={() =>
-            checkIsFavorite
-              ? removeFavoriteBlogHandler()
-              : addFavoriteBlogHandler()
+            isFavorite ? removeFavoriteBlogHandler() : addFavoriteBlogHandler()
           }
         />
       </div>
