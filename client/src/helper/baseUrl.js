@@ -1,4 +1,4 @@
-export const baseUrl = "http://localhost:5000/api";
+export const baseUrl = "https://blog-y35y.onrender.com/api";
 
 export const userUrl = `${baseUrl}/user`;
 
